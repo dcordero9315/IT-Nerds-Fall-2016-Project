@@ -45,6 +45,13 @@ for i in range(1, 9):
     if var.isspace():
        print("\n\n Please enter your guess!")
 
+    if not var.isalpha():
+       print("\n\n Please enter a letter or word!")
+
+    if var in letters_used:
+       print("\n\n You have already guessed this letter!")
+
+   
     if var == word:
         print("correct")
         break
