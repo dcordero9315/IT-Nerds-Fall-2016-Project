@@ -13,7 +13,8 @@ guesses = 0
 letters_used = " "
 words_used = " "
 found = False
-
+incorrect = 0
+foundinword = 0
 
 print('Lets play Hangman!!')
 print ('')
@@ -38,51 +39,53 @@ wrong_guessed = dict.fromkeys(word, 0)
 correct = 0
 
 
-for i in range(1, 9):
+while incorrect != 10:
     index = 0
+    foundinword=0
     var = input("\nWhat's your guess? ")
 
     if var.isspace():
        print("\n\n Please enter your guess!")
 
     if var == word:
-        print("correct")
+        print("Correct!! You Win!!")
         break
     else:
 
-
         while index < len(word):
-  #  for num in range (0,10):
             index = word.find(var, index)
-
+            if correct == len(word):
+                print("Correct!! You Win!!")
+                break
             if index == -1:
+
                 if found == False:
+                    incorrect +=1
                     print ('\nIncorrect!')
                     print ("\n" + var +  '  - does not exist in this word. ')
                     if len(var) > 1:
                         words_used =  words_used + ' ' + var
-                        #print ('\nwords used: [' + words_used + ']')
-                   # else:
-                    if len(var) == 1:
-                        letters_used =  letters_used + ' ' + var
                     if len(words_used) > 1:
                         print ('\nwords used: [' + words_used + ']')
-                    print ('\nletter used: [' + letters_used + ']')
+                    if len(var) == 1:
+                        letters_used =  letters_used + ' ' + var
+                    if len(letters_used) > 1:
+                        print ('\nletter used: [' + letters_used + ']')
                     print ("\n")
                     print(" ".join([ch if guessed[ch] else "_" for ch in word]))
                 break
             else:
                 found = True
-                #print("\n" + var + ' found at', index)
+                foundinword += 1
                 index += 1
                 guessed[var] = 1
                 correct += 1
                 print ("\n")
-                print(" ".join([ch if guessed[ch] else "_" for ch in word]))
+                if foundinword == 1:
+                    print(" ".join([ch if guessed[ch] else "_" for ch in word]))
         found = False
 else:
     print("\nYou lose!\n\nThe word was: {}".format(word))
-#underscore = ("_ " * space)
-# print(underscore)
+
 
 
