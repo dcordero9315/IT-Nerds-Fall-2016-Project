@@ -113,7 +113,7 @@ def drawHangman(incorrect):
 
 
 
-while incorrect<10:
+while incorrect<=10:
     index = 0
     foundinword=0
     var = input("\nWhat's your guess? ")
