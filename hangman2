@@ -19,7 +19,8 @@ letter_guessed = []
 found = False
 incorrect = 0
 foundinword = 0
-
+No_of_left_guesses=10;
+points = 90;
 print('Lets play Hangman!!')
 print ('')
 print (word)
@@ -125,12 +126,12 @@ while incorrect != 10:
 
     if var.isspace():
        print("\n\n Please enter your guess!")
-    if not var.isalpha():
+    elif not var.isalpha():
        print("\n\n Please enter a letter!")
 
 
 
-    if var == word:
+    elif var == word:
         print("Correct!! You Win1!!")
         break
     else:
@@ -144,8 +145,12 @@ while incorrect != 10:
 
                 if found == False:
                     incorrect +=1
+                    No_of_left_guesses-=1
+                    points-=9
                     print ('\nIncorrect!')
                     print ("\n" + var +  '  - does not exist in this word. ')
+                    print("Number of failures left:",No_of_left_guesses)
+                    print("No of points left:", points)
                     if len(var) > 1:
                         words_used =  words_used + ' ' + var
                     if len(words_used) > 1:
