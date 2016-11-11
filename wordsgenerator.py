@@ -18,7 +18,7 @@ foundinword = 0
 
 print('Lets play Hangman!!')
 print ('')
-#print (word)
+print (word)
 #print(len(word))
 while not finished:
         if len(word) < 5 or len(word) > 10:
@@ -37,93 +37,15 @@ guessed = dict.fromkeys(word, 0)
 wrong_guessed = dict.fromkeys(word, 0)
 
 correct = 0
-def drawHangman(incorrect):
-    if incorrect == 1:
-        print("________ ")
-        print("|      | ")
-        print("|        ")
-        print("|        ")
-        print("|        ")
-        print("|        ")
-    elif incorrect == 2:
-        print("________")
-        print("|      |")
-        print("|      0")
-        print("|       ")
-        print("|       ")
-    elif incorrect == 3:
-        print("________")
-        print("|      |")
-        print("|      0")
-        print("|     / ")
-        print("|       ")
-        print("|       ")
-    elif incorrect == 4:
-        print("________")
-        print("|      |")
-        print("|      0")
-        print("|     /|")
-        print("|       ")
-        print("|        ")
-    elif incorrect == 5:
-        print("________")
-        print("|      |")
-        print("|      0")
-        print("|     /|\ ")
-        print("|         ")
-        print("|         ")
-    elif incorrect == 6:
-        print("________ ")
-        print("|      | ")
-        print("|      0 ")
-        print("|     /|\ ")
-        print("|     /   ")
-        print("|         ")
-    elif incorrect == 7:
-        print("________")
-        print("|      |")
-        print("|      0")
-        print("|     /|\ ")
-        print("|     / \ ")
-        print("|         ")
-
-    elif incorrect == 8:
-        print("________")
-        print("|      |")
-        print("|      0")
-        print("|     /|\ ")
-        print("|     / \ ")
-        print("|         ")
-
-    elif incorrect == 9:
-        print("________")
-        print("|      |")
-        print("|      0")
-        print("|    \/|\ ")
-        print("|     / \ ")
-        print("|         ")
-
-    else:
-        print("________")
-        print("|      |")
-        print("|      0")
-        print("|    \/|\/ ")
-        print("|     / \ ")
-        print("|         ")
 
 
-
-while incorrect<=10:
+while incorrect != 10:
     index = 0
     foundinword=0
     var = input("\nWhat's your guess? ")
 
     if var.isspace():
        print("\n\n Please enter your guess!")
-    if not var.isalpha():
-       print("\n\n Please enter a letter!")
-    
-
 
     if var == word:
         print("Correct!! You Win!!")
@@ -151,7 +73,6 @@ while incorrect<=10:
                         print ('\nletter used: [' + letters_used + ']')
                     print ("\n")
                     print(" ".join([ch if guessed[ch] else "_" for ch in word]))
-                    drawHangman(incorrect)
                 break
             else:
                 found = True
