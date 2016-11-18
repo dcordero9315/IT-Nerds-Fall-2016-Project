@@ -46,16 +46,56 @@ while game_again.lower() == "y":
     numplayers = input("\nEnter the number of players (1 or 2): ")
 
 
-    diffLevel = input("Please select your difficulty level: \n (1) Easy \n (2) Medium \n (3) Hard \n");
+#     diffLevel = input("Please select your difficulty level: \n (1) Easy \n (2) Medium \n (3) Hard \n");
 
+#     print("\n*******************************")
+#     print("* You have 10 incorrect guesses")
+#     print("* You have 90 points")
+#     print("* You selected difficulty level of ", arrDiff[int(diffLevel)-1])
+#     print("*******************************\n")
+#added recently
+    while (numplayers != "1") and (numplayers != "2"):
+
+        if numplayers.isspace():
+            print("\n\n Invalid entry! Please enter either 1 0r 2")
+
+        elif numplayers.isalpha():
+            print("\n\n Invalid entry! Please enter either 1 0r 2")
+        elif not numplayers.isdigit():
+            print("\n\n Invalid entry! Please enter either 1 0r 2")
+         # elif (numplayers != 1 or numplayers != 2):
+         #    print("\n\n Invalid entry! Please enter either 1 0r 2")
+
+         # print(type(numplayers))
+        numplayers = input("\nEnter the number of players (1 or 2): ")
+
+    diffLevel = input("Please select your difficulty level: \n (1) Easy \n (2) Medium \n (3) Hard \n");
+    while (diffLevel != "1") and (diffLevel != "2") and (diffLevel != "3"):
+
+
+       if diffLevel.isspace():
+            print("\n\n Invalid entry! Please enter either 1 or 2 or 3")
+
+       elif diffLevel.isalpha():
+            print("\n\n Invalid entry! Please enter either 1 or 2 or 3")
+
+       elif not diffLevel.isdigit():
+           print("\n\n Invalid entry! Please enter either 1 0r 2 or 3")
+       # else:
+       #      print("\n*******************************")
+       #      print("* You have 10 incorrect guesses")
+       #      print("* You have 90 points")
+       #      print("* You selected difficulty level of ", arrDiff[int(diffLevel)-1])
+       #      print("*******************************\n")
+       #      break
+       diffLevel = input("Please select your difficulty level: \n (1) Easy \n (2) Medium \n (3) Hard \n");
     print("\n*******************************")
     print("* You have 10 incorrect guesses")
     print("* You have 90 points")
     print("* You selected difficulty level of ", arrDiff[int(diffLevel)-1])
     print("*******************************\n")
 
-
-
+# upto here
     if numplayers == '2':
         word =  getpass.getpass("\nEnter your word: ")
 
