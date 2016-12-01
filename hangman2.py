@@ -212,9 +212,8 @@ while game_again.lower() == "y":
             incorrect += 1
         else:
             valid_entry = True
-        print (valid_entry)
         if time.time() - timer > diffTime:
-            print("Time is up!")
+            print("\n****Time is up!****")
        #    print(time.time() - timer)
         else:
             #print("index " , index)
@@ -287,7 +286,6 @@ while game_again.lower() == "y":
 
                 found = False
             if correct == len(word):
-                print(correct)
                 print("\nCorrect!! You Win!!\n")
                 print("*******************************")
                 print("* Number of guesses left:",No_of_left_guesses,"  *")
